@@ -28,6 +28,13 @@ class _HomeState extends State<Home> {
 
   String localFilePath;
 
+  Future<File> get _localFile async {
+    final dir = await getApplicationDocumentsDirectory();
+    localFilePath = '${dir.path}/audio.mp3';
+    return File(localFilePath);
+  }
+
+
   PlayerState playerState = PlayerState.stopped;
 
   get isPlaying => playerState == PlayerState.playing;
@@ -88,6 +95,7 @@ class _HomeState extends State<Home> {
   }
 
   Future _playLocal() async {
+    await _localFile;
     await audioPlayer.play(localFilePath, isLocal: true);
     setState(() => playerState = PlayerState.playing);
   }
@@ -131,8 +139,7 @@ class _HomeState extends State<Home> {
       onError: (Exception exception) =>
         print('_loadFile => exception $exception'));
 
-    final dir = await getApplicationDocumentsDirectory();
-    final file = new File('${dir.path}/audio.mp3');
+    final file = await _localFile;
 
     await file.writeAsBytes(bytes);
     if (await file.exists())
