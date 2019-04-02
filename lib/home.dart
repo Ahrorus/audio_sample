@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'ui/bottom_sheet_player.dart';
+import 'audio_template.dart';
+import 'ui/bottom_player.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -8,6 +9,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  BottomPlayer bottomPlayer;
+
+  @override
+  void initState() {
+    super.initState();
+    bottomPlayer = BottomPlayer();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,11 +24,155 @@ class _HomeState extends State<Home> {
       body: ListView(
         children: <Widget>[
           ListTile(
+            title: Text('Lection 0'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[0].address);
+            },
+          ),
+          ListTile(
             title: Text('Lection 1'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[1].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 2'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[2].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 3'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[3].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 4'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[4].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 5'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[5].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 6'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[6].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 0'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[0].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 1'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[1].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 2'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[2].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 3'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[3].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 4'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[4].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 5'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[5].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 6'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[6].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 0'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[0].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 1'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[1].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 2'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[2].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 3'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[3].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 4'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[4].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 5'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[5].address);
+            },
+          ),
+          ListTile(
+            title: Text('Lection 6'),
+            onTap: () {
+              bottomPlayer.show();
+              bottomPlayer.play(audioList[6].address);
+            },
           ),
         ],
       ),
-      bottomSheet: BottomSheetPlayer(),
+      bottomNavigationBar: bottomPlayer,
     );
   }
 }

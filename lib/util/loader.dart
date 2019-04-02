@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:http/http.dart';
@@ -15,12 +16,12 @@ Future<Uint8List> _loadFileBytes(String url, {OnError onError}) async {
   return bytes;
 }
 
-Future<String> loadFile({url, localPath, renewParentWidget}) async {
+Future<String> loadFile({String url, String path, renewParentWidget}) async {
   final bytes = await _loadFileBytes(url,
       onError: (Exception exception) =>
-          print('_loadFile => exception $exception'));
+          print('loadFile => exception $exception'));
 
-  final file = await localPath;
+  final file = File(path);
 
   await file.writeAsBytes(bytes);
   if (await file.exists()) {
